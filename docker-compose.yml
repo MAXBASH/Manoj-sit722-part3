@@ -1,1 +1,19 @@
-# Your Solution
+version: "3"
+services:
+  book_catalog:
+    build: ./book_catalog
+    ports:
+      - "5501:5000"
+    volumes:
+      - ./book_catalog:/usr/src/app
+    environment:
+      - UVICORN_APP=app.main:app
+
+  inventory_management:
+    build: ./inventory_management
+    ports:
+      - "5502:5000"
+    volumes:
+      - ./inventory_management:/usr/src/app
+    environment:
+      - UVICORN_APP=app.main:app
